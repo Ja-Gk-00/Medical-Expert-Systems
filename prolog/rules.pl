@@ -83,7 +83,7 @@ diagnosis(mdma_intoxication, Patient) :-
   symptom(Patient, tachycardia),
   symptom(Patient, sweating),
   symptom(Patient, palpitations),
-  symptom(Patient, blurring_vision),
+  symptom(Patient, blurred_vision),
   symptom(Patient, tremors),
   symptom(Patient, incoordination).
 
@@ -96,7 +96,7 @@ diagnosis(inhalant_intoxication, Patient) :-
   symptom(Patient, lethargy),
   symptom(Patient, depressed_reflexes),
   symptom(Patient, psychomotor_retardation),
-  symptom(Patient, tremor),
+  symptom(Patient, tremors),
   symptom(Patient, muscle_weakness),
   symptom(Patient, blurred_vision),
   symptom(Patient, diplopia),
@@ -150,7 +150,7 @@ diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, weight_loss),
   symptom(Patient, psychomotor_agitation),
   symptom(Patient, psychomotor_retardation),
-  symptom(Patient, muscular_weakness),
+  symptom(Patient, muscle_weakness),
   symptom(Patient, respiratory_depression),
   symptom(Patient, chest_pain),
   symptom(Patient, cardiac_arrhythmias),
