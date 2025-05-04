@@ -36,6 +36,7 @@ symptoms_dict = {
     "Muscle pain": "muscle_pain",
     "Muscle stiffness": "muscle_stiffness",
     "Red eyes": "conjunctival_injection",
+    "Decreased appetite": "decreased_appetite",
     "Increased appetite": "increased_appetite",
     "Dry mouth": "dry_mouth",
     "Irritability": "irritability",
