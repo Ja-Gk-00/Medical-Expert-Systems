@@ -63,7 +63,7 @@ diagnosis(cannabis_withdrawal, Patient) :-
   symptom(Patient, decreased_appetite),
   symptom(Patient, weight_loss),
   symptom(Patient, restlessness),
-  symptom(Patient, depressed_mood)
+  symptom(Patient, depressed_mood).
 
 diagnosis(ketamine_intoxication, Patient) :-
   symptom(Patient, nystagmus),
