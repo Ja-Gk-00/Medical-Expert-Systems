@@ -52,7 +52,7 @@ symptoms_dict = {
     "Dilated pupils": "pupillary_dilation",
     "Sweating": "sweating",
     "Heart palpitations": "palpitations",
-    "Blurred vision": "blurring_vision",
+    "Blurred vision": "blurred_vision",
     "Tremors": "tremors",
     "Dizziness": "dizziness",
     "Lethargy": "lethargy",
