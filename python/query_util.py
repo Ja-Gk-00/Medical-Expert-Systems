@@ -7,8 +7,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 import prolog.symptoms_dict as symptoms_dict
 
-from pyswip import Prolog
-
 # Load prolog file
 prolog = Prolog()
 prolog.consult("../prolog/rules.pl")
