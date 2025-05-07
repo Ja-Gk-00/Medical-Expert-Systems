@@ -8,17 +8,6 @@ diagnosis(alcohol_intoxication, Patient) :-
   symptom(Patient, stupor),
   symptom(Patient, coma).
 
-diagnosis(alcohol_withdrawal, Patient) :-
-  symptom(Patient, autonomic_hyperactivity),
-  symptom(Patient, hand_tremor),
-  symptom(Patient, insomnia),
-  symptom(Patient, nausea),
-  symptom(Patient, vomiting),
-  symptom(Patient, hallucinations),
-  symptom(Patient, psychomotor_agitation),
-  symptom(Patient, anxiety),
-  symptom(Patient, seizures).
-
 diagnosis(caffeine_intoxication, Patient) :-
   symptom(Patient, restlessness),
   symptom(Patient, nervousness),
@@ -34,36 +23,11 @@ diagnosis(caffeine_intoxication, Patient) :-
   symptom(Patient, periodic_inexhaustibility),
   symptom(Patient, psychomotor_agitation).
 
-diagnosis(caffeine_withdrawal, Patient) :-
-  symptom(Patient, headache),
-  symptom(Patient, fatigue),
-  symptom(Patient, drowsiness),
-  symptom(Patient, dysphoric_mood),
-  symptom(Patient, depressed_mood),
-  symptom(Patient, difficulty_concentrating),
-  symptom(Patient, nausea),
-  symptom(Patient, vomiting),
-  symptom(Patient, muscle_pain),
-  symptom(Patient, muscle_stiffness).
-
 diagnosis(cannabis_intoxication, Patient) :-
   symptom(Patient, conjunctival_injection),
   symptom(Patient, increased_appetite),
   symptom(Patient, dry_mouth),
   symptom(Patient, tachycardia).
-
-diagnosis(cannabis_withdrawal, Patient) :-
-  symptom(Patient, irritability),
-  symptom(Patient, anger),
-  symptom(Patient, aggression),
-  symptom(Patient, nervousness),
-  symptom(Patient, anxiety),
-  symptom(Patient, insomnia),
-  symptom(Patient, dry_mouth),
-  symptom(Patient, decreased_appetite),
-  symptom(Patient, weight_loss),
-  symptom(Patient, restlessness),
-  symptom(Patient, depressed_mood).
 
 diagnosis(ketamine_intoxication, Patient) :-
   symptom(Patient, nystagmus),
@@ -104,38 +68,12 @@ diagnosis(inhalant_intoxication, Patient) :-
   symptom(Patient, coma),
   symptom(Patient, euphoria).
 
-diagnosis(nicotine_withdrawal, Patient) :-
-  symptom(Patient, irritability),
-  symptom(Patient, frustration),
-  symptom(Patient, anger),
-  symptom(Patient, anxiety),
-  symptom(Patient, difficulty_concentrating),
-  symptom(Patient, increased_appetite),
-  symptom(Patient, restlessness),
-  symptom(Patient, depressed_mood),
-  symptom(Patient, insomnia).
-
 diagnosis(opioid_intoxication, Patient) :-
   symptom(Patient, drowsiness),
   symptom(Patient, coma),
   symptom(Patient, slurred_speech),
   symptom(Patient, attention_impairment),
   symptom(Patient, memory_impairment).
-
-diagnosis(opioid_withdrawal, Patient) :-
-  symptom(Patient, dysphoric_mood),
-  symptom(Patient, nausea),
-  symptom(Patient, vomiting),
-  symptom(Patient, muscle_aches),
-  symptom(Patient, lacrimation),
-  symptom(Patient, rhinorrhea),
-  symptom(Patient, pupillary_dilation),
-  symptom(Patient, piloerection),
-  symptom(Patient, sweating),
-  symptom(Patient, diarrhea),
-  symptom(Patient, yawning),
-  symptom(Patient, fever),
-  symptom(Patient, insomnia).
 
 diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, tachycardia),
@@ -160,10 +98,10 @@ diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, dystonias),
   symptom(Patient, coma).
 
-diagnosis(stimulant_withdrawal, Patient) :-
+diagnosis(student_allergy, Patient) :-
+  symptom(Patient, anxiety),
+  symptom(Patient, nervousness),
+  symptom(Patient, headache),
   symptom(Patient, fatigue),
-  symptom(Patient, insomnia),
-  symptom(Patient, hypersomnia),
-  symptom(Patient, increased_appetite),
-  symptom(Patient, psychomotor_agitation),
-  symptom(Patient, psychomotor_retardation).
+  symptom(Patient, dysphoric_mood),
+  symptom(Patient, irritability).
