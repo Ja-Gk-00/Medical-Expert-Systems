@@ -1,4 +1,13 @@
-symptoms_dict = {
+fake_symptoms = {
+    "Hair color": "hair_color",
+    "Gender": "gender",
+    "Race": "race",
+    "Age": "age",
+    "Height above sea level": "height_above_sea_level",
+    "Practices sport": "sporty"
+}
+
+used_symptoms = {
     "Slurred speech": "slurred_speech",
     "Lack of coordination": "incoordination",
     "Unsteady walking": "unsteady_gait",
@@ -7,12 +16,9 @@ symptoms_dict = {
     "Memory problems": "memory_impairment",
     "Reduced consciousness": "stupor",
     "Unconsciousness": "coma",
-    "Increased autonomic activity": "autonomic_hyperactivity",
-    "Hand tremors": "hand_tremor",
     "Difficulty sleeping": "insomnia",
     "Nausea": "nausea",
     "Vomiting": "vomiting",
-    "Visual or auditory hallucinations": "hallucinations",
     "Physical restlessness": "psychomotor_agitation",
     "Anxiety": "anxiety",
     "Seizures": "seizures",
@@ -31,17 +37,11 @@ symptoms_dict = {
     "Fatigue": "fatigue",
     "Drowsiness": "drowsiness",
     "Negative mood": "dysphoric_mood",
-    "Depression": "depressed_mood",
-    "Difficulty concentrating": "difficulty_concentrating",
-    "Muscle pain": "muscle_pain",
     "Muscle stiffness": "muscle_stiffness",
     "Red eyes": "conjunctival_injection",
-    "Decreased appetite": "decreased_appetite",
     "Increased appetite": "increased_appetite",
     "Dry mouth": "dry_mouth",
     "Irritability": "irritability",
-    "Anger": "anger",
-    "Aggression": "aggression",
     "Weight loss": "weight_loss",
     "High blood pressure": "hypertension",
     "Numbness": "numbness",
@@ -61,14 +61,6 @@ symptoms_dict = {
     "Muscle weakness": "muscle_weakness",
     "Double vision": "diplopia",
     "Euphoria": "euphoria",
-    "Frustration": "frustration",
-    "Muscle aches": "muscle_aches",
-    "Excessive tearing": "lacrimation",
-    "Runny nose": "rhinorrhea",
-    "Goosebumps": "piloerection",
-    "Diarrhea": "diarrhea",
-    "Yawning": "yawning",
-    "Fever": "fever",
     "Slow heartbeat": "bradycardia",
     "Elevated blood pressure": "elevated_blood_pressure",
     "Lowered blood pressure": "lowered_blood_pressure",
@@ -79,6 +71,7 @@ symptoms_dict = {
     "Confusion": "confusion",
     "Abnormal movements": "dyskinesias",
     "Muscle contractions": "dystonias",
-    "Excessive sleeping": "hypersomnia",
     "Perspiration": "perspiration"
 }
+
+symptoms_dict = {**fake_symptoms, **used_symptoms}
