@@ -390,7 +390,7 @@ diagnosis(inhalant_intoxication, Patient) :-
   symptom(Patient, depressed_reflexes).
 
 diagnosis(inhalant_intoxication, Patient) :-
-  symptom_class(Patient, tachycardia, False),
+  symptom_class(Patient, tachycardia, false),
   symptom(Patient, depressed_reflexes).
 
 diagnosis(inhalant_intoxication, Patient) :-
@@ -550,7 +550,7 @@ diagnosis(opioid_intoxication, Patient) :-
   symptom(Patient, drowsiness).
 
 diagnosis(opioid_intoxication, Patient) :-
-  symptom_class(Patient, nystagmus, False),
+  symptom_class(Patient, nystagmus, false),
   symptom(Patient, drowsiness).
 
 diagnosis(opioid_intoxication, Patient) :-
@@ -847,7 +847,7 @@ diagnosis(stimulant_intoxication, Patient) :-
 
 diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, chills),
-  symptom_class(Patient, nystagmus, False).
+  symptom_class(Patient, nystagmus, false).
 
 diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, chills),
@@ -930,7 +930,7 @@ diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, muscle_weakness).
 
 diagnosis(stimulant_intoxication, Patient) :-
-  symptom_class(Patient, nystagmus, False),
+  symptom_class(Patient, nystagmus, false),
   symptom(Patient, confusion).
 
 diagnosis(stimulant_intoxication, Patient) :-
@@ -1082,7 +1082,7 @@ diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, dyskinesias).
 
 diagnosis(stimulant_intoxication, Patient) :-
-  symptom_class(Patient, tachycardia, False),
+  symptom_class(Patient, tachycardia, false),
   symptom(Patient, dyskinesias).
 
 diagnosis(stimulant_intoxication, Patient) :-
@@ -1242,7 +1242,7 @@ diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, lowered_blood_pressure).
 
 diagnosis(stimulant_intoxication, Patient) :-
-  symptom_class(Patient, tachycardia, False),
+  symptom_class(Patient, tachycardia, false),
   symptom(Patient, lowered_blood_pressure).
 
 diagnosis(stimulant_intoxication, Patient) :-
@@ -1291,10 +1291,10 @@ diagnosis(stimulant_intoxication, Patient) :-
 
 diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, perspiration),
-  symptom_class(Patient, nystagmus, False).
+  symptom_class(Patient, nystagmus, false).
 
 diagnosis(stimulant_intoxication, Patient) :-
-  symptom_class(Patient, nystagmus, False),
+  symptom_class(Patient, nystagmus, false),
   symptom(Patient, weight_loss).
 
 diagnosis(stimulant_intoxication, Patient) :-
@@ -1942,7 +1942,7 @@ diagnosis(stimulant_intoxication, Patient) :-
   symptom(Patient, seizures).
 
 diagnosis(stimulant_intoxication, Patient) :-
-  symptom_class(Patient, tachycardia, False),
+  symptom_class(Patient, tachycardia, false),
   symptom(Patient, vomiting).
 
 diagnosis(stimulant_intoxication, Patient) :-
