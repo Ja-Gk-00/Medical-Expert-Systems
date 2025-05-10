@@ -75,3 +75,9 @@ used_symptoms = {
 }
 
 symptoms_dict = {**fake_symptoms, **used_symptoms}
+
+
+symptoms_with_classes_dict = {
+    "nystagmus": (1, 2, 3),
+    "tachycardia": ("sinus", "supraventricular", "chambers"),
+}
