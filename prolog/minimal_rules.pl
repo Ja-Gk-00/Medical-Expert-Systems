@@ -479,7 +479,7 @@ diagnosis(inhalant_intoxication, Patient, Confidence) :-
 
 diagnosis(inhalant_intoxication, Patient, Confidence) :-
   symptom_conf(Patient, depressed_reflexes, Conf1),
-  symptom_class_conf(Patient, tachycardia, False, Conf2),
+  symptom_class_conf(Patient, tachycardia, false, Conf2),
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(inhalant_intoxication, Patient, Confidence) :-
@@ -678,7 +678,7 @@ diagnosis(opioid_intoxication, Patient, Confidence) :-
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(opioid_intoxication, Patient, Confidence) :-
-  symptom_class_conf(Patient, nystagmus, False, Conf1),
+  symptom_class_conf(Patient, nystagmus, false, Conf1),
   symptom_conf(Patient, drowsiness, Conf2),
   min_list([Conf1,Conf2], Confidence).
 
@@ -1048,7 +1048,7 @@ diagnosis(stimulant_intoxication, Patient, Confidence) :-
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
-  symptom_class_conf(Patient, nystagmus, False, Conf1),
+  symptom_class_conf(Patient, nystagmus, false, Conf1),
   symptom_conf(Patient, chills, Conf2),
   min_list([Conf1,Conf2], Confidence).
 
@@ -1154,7 +1154,7 @@ diagnosis(stimulant_intoxication, Patient, Confidence) :-
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
   symptom_conf(Patient, confusion, Conf1),
-  symptom_class_conf(Patient, nystagmus, False, Conf2),
+  symptom_class_conf(Patient, nystagmus, false, Conf2),
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
@@ -1344,7 +1344,7 @@ diagnosis(stimulant_intoxication, Patient, Confidence) :-
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
   symptom_conf(Patient, dyskinesias, Conf1),
-  symptom_class_conf(Patient, tachycardia, False, Conf2),
+  symptom_class_conf(Patient, tachycardia, false, Conf2),
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
@@ -1544,7 +1544,7 @@ diagnosis(stimulant_intoxication, Patient, Confidence) :-
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
   symptom_conf(Patient, lowered_blood_pressure, Conf1),
-  symptom_class_conf(Patient, tachycardia, False, Conf2),
+  symptom_class_conf(Patient, tachycardia, false, Conf2),
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
@@ -1603,13 +1603,13 @@ diagnosis(stimulant_intoxication, Patient, Confidence) :-
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
-  symptom_class_conf(Patient, nystagmus, False, Conf1),
+  symptom_class_conf(Patient, nystagmus, false, Conf1),
   symptom_conf(Patient, perspiration, Conf2),
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
   symptom_conf(Patient, weight_loss, Conf1),
-  symptom_class_conf(Patient, nystagmus, False, Conf2),
+  symptom_class_conf(Patient, nystagmus, false, Conf2),
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
@@ -2419,7 +2419,7 @@ diagnosis(stimulant_intoxication, Patient, Confidence) :-
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-
   symptom_conf(Patient, vomiting, Conf1),
-  symptom_class_conf(Patient, tachycardia, False, Conf2),
+  symptom_class_conf(Patient, tachycardia, false, Conf2),
   min_list([Conf1,Conf2], Confidence).
 
 diagnosis(stimulant_intoxication, Patient, Confidence) :-

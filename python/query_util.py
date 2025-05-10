@@ -10,16 +10,18 @@ import prolog.symptoms_dict as symptoms_dict
 # Load prolog file
 prolog = Prolog()
 prolog.consult("../prolog/minimal_rules.pl")
+prolog.consult("../prolog/confidence.pl")
 
 symptoms_dict_reversed = {v: k for k, v in symptoms_dict.symptoms_dict.items()}
 
 def diagnose_patient(patient_name, symptoms):
     """Queries the Prolog knowledge base for a diagnosis."""
-    query = f"diagnosis(Diagnosis, '{patient_name}')"
+    query = f"diagnosis(Diagnosis, '{patient_name}', Confidence)"
     diagnosis_results = list(prolog.query(query))
-    print(f"Diagnosis Results: {diagnosis_results}") # Add this line
+    diagnosis_results = list(filter(lambda x: x.get("Confidence", 0), diagnosis_results))
+    print(f"DEBUG Diagnosis Results: {diagnosis_results}") # Add this line
     if diagnosis_results:
-        diagnoses = set(result["Diagnosis"] for result in diagnosis_results)
+        diagnoses = set((result["Diagnosis"], result["Confidence"]) for result in diagnosis_results)
         return list(diagnoses)
     else:
         return ["No diagnosis found based on the provided symptoms."]
@@ -67,11 +69,11 @@ if __name__ == "__main__":
 
     if user_provided_symptoms:
         # Assert the user's symptoms (with grades if provided) as facts in Prolog temporarily
-        prolog.assertz(f"symptom_class('x', 'y', z)")
+        prolog.assertz(f"symptom_class_true('x', 'y', z)")
         prolog.assertz(f"symptom('x', 'y')")
         for symptom_code, value in user_provided_symptoms.items():
             if symptom_code in ["tachycardia", "nystagmus"]:
-                prolog.assertz(f"symptom_class('{patient_name}', '{symptom_code}', {value})")
+                prolog.assertz(f"symptom_class_true('{patient_name}', '{symptom_code}', {value})")
             else:
                 prolog.assertz(f"symptom('{patient_name}', '{symptom_code}')")
 
@@ -80,14 +82,14 @@ if __name__ == "__main__":
         if diagnoses:
             print(f"\nBased on the provided symptoms, the possible diagnoses for {patient_name} are:")
             for diagnosis in diagnoses:
-                print(f"- {diagnosis}")
+                print(f"- {diagnosis[0]} - {diagnosis[1]*100}%")
         else:
             print(f"\nNo diagnosis could be determined for {patient_name} based on the provided symptoms.")
 
         # Retract the asserted symptoms (clean up Prolog environment)
         for symptom_code, value in user_provided_symptoms.items():
             if symptom_code in ["tachycardia", "nystagmus"]:
-                prolog.retract(f"symptom_class('{patient_name}', '{symptom_code}', {value})")
+                prolog.retract(f"symptom_class_true('{patient_name}', '{symptom_code}', {value})")
             else:
                 prolog.retract(f"symptom('{patient_name}', '{symptom_code}')")
     else:

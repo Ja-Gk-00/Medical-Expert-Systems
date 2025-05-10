@@ -38,7 +38,7 @@ symptom_class_conf(Patient, Symptom, QueryValue, Confidence) :-
     confidence(Symptom, TrueValue, QueryValue, Confidence).
 
 symptom_conf(Patient, Symptom, Confidence) :-
-    (symptom_conf(Patient, Symptom) = true -> Confidence = 1 ; Confidence = 0).
+    (symptom(Patient, Symptom) = true -> Confidence = 1 ; Confidence = 0).
 
 not_symptom_conf(Patient, Symptom, Confidence) :-
-    (symptom_conf(Patient, Symptom) = true -> Confidence = 0 ; Confidence = 1).
+    (symptom(Patient, Symptom) = true -> Confidence = 0 ; Confidence = 1).
