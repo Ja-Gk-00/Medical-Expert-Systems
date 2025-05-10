@@ -5,6 +5,16 @@ from dataclasses import dataclass
 from typing import Any, Dict, List, Set
 import pandas as pd
 
+diagnosis_dictionary = {"0": "alcohol_intoxication",
+                        "1": "caffeine_intoxication",
+                        "2": "cannabis_intoxication",
+                        "3": "ketamine_intoxication",
+                        "4": "mdma_intoxication",
+                        "5": "inhalant_intoxication",
+                        "6": "opioid_intoxication",
+                        "7": "stimulant_intoxication",
+                        "8": "student_allergy"}
+
 
 @dataclass(frozen=True)
 class MinimalRule:
@@ -12,14 +22,21 @@ class MinimalRule:
     decision: Any
 
     def __str__(self) -> str:
-        conds = " ∧ ".join(f"{attr} = {repr(val)}"
-                            for attr, val in self.antecedent.items())
+        conditions = []
+        for attr, val in self.antecedent.items():
+            if attr in ["nystagmus","tachycardia"]:
+                conditions.append(f"symptom_class(Patient, {attr}, {val})")
+            elif repr(val) == "False":
+                conditions.append(f"\+ symptom(Patient, {attr})")
+            else:
+                conditions.append(f"symptom(Patient, {attr})")
+
+        conds = ",\n  ".join(conditions)
         if isinstance(self.decision, (set, frozenset)):
             dec_str = ",".join(str(x) for x in sorted(self.decision))
         else:
             dec_str = str(self.decision)
-        return f"IF {conds} THEN diagnosis_class = '{dec_str}'"
-
+        return f"diagnosis({diagnosis_dictionary[dec_str]}, Patient) :-\n  {conds}."
 
 @dataclass
 class MinimalRuleSet:
@@ -72,6 +89,7 @@ def extract_minimal_rules(
     decision_column: str = "diagnosis_class"
 ) -> MinimalRuleSet:
     df = pd.read_csv(csv_path)
+    df = df.drop(columns=["patient_id", "diagnosis"])
 
     if decision_column not in df:
         raise KeyError(f"Column '{decision_column}' not found")
