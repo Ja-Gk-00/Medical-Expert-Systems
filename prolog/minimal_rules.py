@@ -23,20 +23,34 @@ class MinimalRule:
 
     def __str__(self) -> str:
         conditions = []
-        for attr, val in self.antecedent.items():
-            if attr in ["nystagmus","tachycardia"]:
-                conditions.append(f"symptom_class(Patient, {attr}, {val})")
+        count = len(self.antecedent.items())
+        if count == 1:
+            attr, val = list(self.antecedent.items())[0]
+            if attr in ["nystagmus", "tachycardia"]:
+                conditions.append(f"symptom_class_conf(Patient, {attr}, {val}, Confidence)")
             elif repr(val) == "False":
-                conditions.append(f"\\+ symptom(Patient, {attr})")
+                conditions.append(f"not_symptom_conf(Patient, {attr}, Confidence)")
             else:
-                conditions.append(f"symptom(Patient, {attr})")
+                conditions.append(f"symptom_conf(Patient, {attr}, Confidence)")
+        else:
+            min_list = []
+            for ind, (attr, val) in enumerate(self.antecedent.items(), 1):
+                if attr in ["nystagmus", "tachycardia"]:
+                    conditions.append(f"symptom_class_conf(Patient, {attr}, {val}, Conf{ind})")
+                elif repr(val) == "False":
+                    conditions.append(f"not_symptom_conf(Patient, {attr}, Conf{ind})")
+                else:
+                    conditions.append(f"symptom_conf(Patient, {attr}, Conf{ind})")
+                min_list.append(f"Conf{ind}")
+
+            conditions.append(f"min_list([{','.join(min_list)}], Confidence)")
 
         conds = ",\n  ".join(conditions)
         if isinstance(self.decision, (set, frozenset)):
             dec_str = ",".join(str(x) for x in sorted(self.decision))
         else:
             dec_str = str(self.decision)
-        return f"diagnosis({diagnosis_dictionary[dec_str]}, Patient) :-\n  {conds}."
+        return f"diagnosis({diagnosis_dictionary[dec_str]}, Patient, Confidence) :-\n  {conds}."
 
 @dataclass
 class MinimalRuleSet:
