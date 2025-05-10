@@ -27,7 +27,7 @@ class MinimalRule:
             if attr in ["nystagmus","tachycardia"]:
                 conditions.append(f"symptom_class(Patient, {attr}, {val})")
             elif repr(val) == "False":
-                conditions.append(f"\+ symptom(Patient, {attr})")
+                conditions.append(f"\\+ symptom(Patient, {attr})")
             else:
                 conditions.append(f"symptom(Patient, {attr})")
 
