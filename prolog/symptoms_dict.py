@@ -2,7 +2,6 @@ fake_symptoms = {
     "Hair color": "hair_color",
     "Gender": "gender",
     "Race": "race",
-    "Age": "age",
     "Height above sea level": "height_above_sea_level",
     "Practices sport": "sporty",
 }
