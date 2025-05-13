@@ -24,7 +24,7 @@ def diagnose_patient():
     if diagnosis_results:
         diagnoses = {}
         for diagnosis in diagnosis_results:
-            if diagnosis["Diagnosis"] in diagnoses and diagnosis["Confidence"] < diagnoses[diagnosis["Diagnosis"]]:
+            if diagnosis["Diagnosis"] in diagnoses and diagnosis["Confidence"] <= diagnoses[diagnosis["Diagnosis"]]:
                 continue
             diagnoses[diagnosis["Diagnosis"]] = diagnosis["Confidence"]
         return diagnoses.items()
