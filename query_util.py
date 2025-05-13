@@ -6,8 +6,9 @@ from prolog.symptoms_dict import symptoms_dict, symptoms_with_classes_dict
 
 # Load prolog file
 prolog = Prolog()
-consult(prolog, "minimal_rules.pl", relative_to=".\\prolog")
-consult(prolog, "confidence.pl", relative_to=".\\prolog")
+relative_path = ".\\prolog"
+consult(prolog, "minimal_rules.pl", relative_to=relative_path)
+consult(prolog, "confidence.pl", relative_to=relative_path)
 prolog.assertz(f"symptom_class_true(x, y)")
 prolog.assertz(f"symptom(x)")
 
@@ -21,8 +22,12 @@ def diagnose_patient():
     diagnosis_results = list(filter(lambda x: x.get("Confidence", 0), diagnosis_results))
     print(f"DEBUG Diagnosis Results: {diagnosis_results}")  # Add this line
     if diagnosis_results:
-        diagnoses = set((result["Diagnosis"], result["Confidence"]) for result in diagnosis_results)
-        return list(diagnoses)
+        diagnoses = {}
+        for diagnosis in diagnosis_results:
+            if diagnosis["Diagnosis"] in diagnoses and diagnosis["Confidence"] < diagnoses[diagnosis["Diagnosis"]]:
+                continue
+            diagnoses[diagnosis["Diagnosis"]] = diagnosis["Confidence"]
+        return diagnoses.items()
     else:
         return []
 
