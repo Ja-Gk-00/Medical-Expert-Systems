@@ -4,7 +4,7 @@ fake_symptoms = {
     "Race": "race",
     "Age": "age",
     "Height above sea level": "height_above_sea_level",
-    "Practices sport": "sporty"
+    "Practices sport": "sporty",
 }
 
 used_symptoms = {
@@ -71,13 +71,13 @@ used_symptoms = {
     "Confusion": "confusion",
     "Abnormal movements": "dyskinesias",
     "Muscle contractions": "dystonias",
-    "Perspiration": "perspiration"
+    "Perspiration": "perspiration",
 }
 
 symptoms_dict = {**fake_symptoms, **used_symptoms}
 
 
 symptoms_with_classes_dict = {
-    "nystagmus": (1, 2, 3),
+    "nystagmus": ("1", "2", "3"),
     "tachycardia": ("sinus", "supraventricular", "chambers"),
 }

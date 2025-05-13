@@ -33,12 +33,12 @@ confidence(tachycardia, chambers, supraventricular, 0.7).
 confidence(tachycardia, chambers, chambers, 1).
 
 
-symptom_class_conf(Patient, Symptom, QueryValue, Confidence) :-
-    symptom_class_true(Patient, Symptom, TrueValue),
+symptom_class_conf(Symptom, QueryValue, Confidence) :-
+    symptom_class_true(Symptom, TrueValue),
     confidence(Symptom, TrueValue, QueryValue, Confidence).
 
-symptom_conf(Patient, Symptom, Confidence) :-
-    (symptom(Patient, Symptom) = true -> Confidence = 1 ; Confidence = 0).
+symptom_conf(Symptom, Confidence) :-
+    (symptom(Symptom) -> Confidence = 1 ; Confidence = 0).
 
-not_symptom_conf(Patient, Symptom, Confidence) :-
-    (symptom(Patient, Symptom) = true -> Confidence = 0 ; Confidence = 1).
+not_symptom_conf(Symptom, Confidence) :-
+    (symptom(Symptom) -> Confidence = 0 ; Confidence = 1).
